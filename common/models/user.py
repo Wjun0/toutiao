@@ -29,4 +29,20 @@ class User(db.Model):
         }
 
 
+class Relation(db.Model):
+    """
+    用户关系表
+    """
+    __tablename__ = 'user_relation'
+
+    class RELATION:
+        DELETE = 0
+        FOLLOW = 1
+        BLACKLIST = 2
+
+    id = db.Column('relation_id', db.Integer, primary_key=True, doc='主键ID')
+    user_id = db.Column(db.Integer, doc='用户ID')
+    target_user_id = db.Column(db.Integer, doc='目标用户ID')
+    relation = db.Column(db.Integer, doc='关系')
+
 

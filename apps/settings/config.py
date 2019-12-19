@@ -6,7 +6,7 @@ class DefaultConfig:
     REDIS_IP = '192.168.59.129' #redis 的地址
     REDIS_PORT = 6379  #redis端口
 
-
+    JWT_SECRET = 'test'
 
 config_dict = {
     'dev': DefaultConfig

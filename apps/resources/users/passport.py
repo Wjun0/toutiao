@@ -41,7 +41,7 @@ class LoginResource(Resource):
         key = 'app:code:{}'.format(mobile)
         real_code = redis_client.get(key)
         if not real_code or real_code != code:
-            return {'message':'Invalid Code'}
+            return {'message':'Invalid Code'},400
         #删除验证码
         redis_client.delete(key)
 

@@ -60,6 +60,10 @@ def create_app(config_type):
     from utils.converters import register_converters
     register_converters(app)
 
+    #添加请求钩子
+    from utils.middlewares import get_userinfo
+    app.before_request(get_userinfo)
+
     #注册蓝图
     register_blueprint(app)
 

@@ -1,5 +1,5 @@
 class DefaultConfig:
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:mysql@127.0.0.1:3306/toutiao'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:mysql@192.168.59.129:3306/toutiao'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
 

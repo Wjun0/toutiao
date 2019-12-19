@@ -6,6 +6,7 @@ from models.user import User
 from utils.decorators import login_required
 
 
+
 class UserInfo(Resource):
     method_decorators = [login_required]
     def get(self):

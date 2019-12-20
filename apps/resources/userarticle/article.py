@@ -70,7 +70,7 @@ class ArticleDetailResource(Resource):
             attribute_dict['is_followed'] = True if relation else False
 
             attitude = db.session.query(Attitude.attitude).filter(Attitude.user_id==g.userid,Attitude.article_id==data.id).first()
-            attribute_dict['is_collected'] = attitude[0] if attitude else -1
+            attribute_dict['attitude'] = attitude[0] if attitude else -1
 
             collection = db.session.query(Collection.id).filter(Collection.user_id==userid,Collection.article_id==data.id,Collection.is_deleted==False).first()
             attribute_dict['is_collected'] =True if collection else False

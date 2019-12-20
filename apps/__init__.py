@@ -7,8 +7,6 @@ import sys
 from redis import StrictRedis
 
 #添加common路径到模块查询路径中
-from apps.resources.userarticle import article_bp
-
 BASE_DIR= dirname(dirname(abspath(__file__)))
 sys.path.insert(0,BASE_DIR +'/common')
 
@@ -33,7 +31,12 @@ def register_extensions(app):
 def register_blueprint(app):
     from apps.resources.users import user_bp
     app.register_blueprint(user_bp)
+
+    from apps.resources.userarticle import article_bp
     app.register_blueprint(article_bp)
+
+    from apps.resources.comments import comment_bp
+    app.register_blueprint(comment_bp)
 
 
 

@@ -61,16 +61,11 @@ class CommentResource(Resource):
         offset = args.offset
         limit = args.limit
 
-        # comments = db.session.query(Comment.id, Comment.user_id, User.name, User.profile_photo,Comment.ctime,Comment.content,
-        #                  Comment.reply_count,Comment.like_count).\
-        #     join(User,User.id ==Comment.user_id).\
-        #     filter(Comment.article_id ==source,Comment.id>offset).\
-        #     limit(limit).all()
-
-        comments = db.session.query(Comment.id, Comment.user_id, User.name, User.profile_photo, Comment.ctime,
-                                    Comment.content, Comment.reply_count, Comment.like_count). \
-            join(User, Comment.user_id == User.id). \
-            filter(Comment.article_id == source, Comment.id > offset).limit(limit).all()
+        comments = db.session.query(Comment.id, Comment.user_id, User.name, User.profile_photo,Comment.ctime,Comment.content,
+                         Comment.reply_count,Comment.like_count).\
+            join(User,User.id ==Comment.user_id).\
+            filter(Comment.article_id ==source,Comment.id>offset).\
+            limit(limit).all()
 
         results = [{
             'com_id':comment.id,
